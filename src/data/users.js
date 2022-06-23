@@ -1,3 +1,4 @@
+/* eslint-disable prettier/prettier */
 export const users = [
   {
     name: 'Adam Romański',
@@ -26,6 +27,7 @@ export const users = [
   },
   {
     name: 'Paweł Roman',
+    attendance: '10%',
     average: '2.4',
   },
 ];
