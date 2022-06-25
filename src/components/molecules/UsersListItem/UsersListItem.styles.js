@@ -4,7 +4,6 @@ export const Wrapper = styled.li`
   display: flex;
   align-items: center;
   position: relative;
-  gap: 25px;
   &:not(:last-child)::after {
     content: '';
     position: absolute;
@@ -13,30 +12,39 @@ export const Wrapper = styled.li`
     height: 1px;
     background-color: lightgrey;
   }
+`;
 
-  div:nth-child(1) {
-    width: 34px;
-    height: 34px;
+export const StyledAverage = styled.div`
+  width: 35px;
+  height: 35px;
+  border-radius: 50px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: ${({ theme }) => theme.fontSize.s};
+  color: ${({ theme }) => theme.colors.white};
+  font-weight: bold;
+  background: ${({ theme, value }) => {
+    if (value > 4) return theme.colors.success;
+    if (value > 3) return theme.colors.warning;
+    if (value > 2) return theme.colors.error;
+    return theme.colors.grey;
+  }};
+`;
+
+export const StyledInfo = styled.div`
+  padding: 25px 20px;
+  p {
+    margin: 0;
+    color: ${({ theme }) => theme.colors.darkGrey};
+  }
+  p:first-child {
     display: flex;
     align-items: center;
-    justify-content: center;
-  }
-
-  div:nth-child(2) {
-    margin: 15px 0;
-    width: 150px;
-  }
-
-  p:nth-child(1) {
+    font-weight: bold;
     font-size: ${({ theme }) => theme.fontSize.l};
-    font-weight: 700;
-    color: ${({ theme }) => theme.colors.darkGrey};
-    margin: 0;
   }
-
-  p:nth-child(2) {
-    font-size: ${({ theme }) => theme.fontSize.s};
-    font-weight: 400;
-    margin: 0;
+  p:last-child {
+    font-size: ${({ theme }) => theme.fontSize.m};
   }
 `;
